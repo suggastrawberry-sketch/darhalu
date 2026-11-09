@@ -1,2 +1,94 @@
-# darhalu
-c:
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#ff4d6d,#ff9a9e);
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+h1{
+    color:white;
+    text-align:center;
+    font-size:3rem;
+    text-shadow:0 0 15px rgba(255,255,255,.7);
+    animation:pulse 2s infinite;
+}
+
+p{
+    color:white;
+    margin-top:20px;
+    font-size:1.4rem;
+}
+
+.card{
+    text-align:center;
+    z-index:2;
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    font-size:24px;
+    animation:float 8s linear infinite;
+    opacity:.8;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:1;
+    }
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>❤️ Ich liebe dich ❤️</h1>
+    <p>Du bist das Schönste, was mir passiert ist.</p>
+</div>
+
+<script>
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(20+Math.random()*30)+"px";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),10000);
+}
+
+setInterval(createHeart,250);
+</script>
+
+</body>
+</html>
